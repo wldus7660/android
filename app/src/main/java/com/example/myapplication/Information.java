@@ -43,6 +43,7 @@ public class Information extends BaseActivity {
     int j=0;
     int number=0;
     String ID;
+    int kiki=0;
 
     //    private int k=1;
     public static Context getContext() {
@@ -80,6 +81,7 @@ public class Information extends BaseActivity {
                                         if (jjObject.getString("store_name").equals(s)) {
                                             aa=jjObject.getInt("waiting_number");
                                             ID=jjObject.getString("_id");
+                                            kiki=jjObject.getInt("customer_number");
                                             JSONObject hiObject = new JSONObject();
                                             try {
                                                 hiObject.put("_id",ID);
@@ -102,9 +104,9 @@ public class Information extends BaseActivity {
                                                     //TODO: handle failure
                                                 }
                                             });
-                                            Volley.newRequestQueue(Information.getContext()).add(jsonRequest);
-                                        }
-                                    }
+                                            Volley.newRequestQueue(Information.getContext()).add(jsonRequest);}
+
+
                                     JSONObject jObject = new JSONObject();
                                     try {
                                         jObject.put("store_name", s);
@@ -126,7 +128,7 @@ public class Information extends BaseActivity {
                                             //TODO: handle failure
                                         }
                                     });
-                                    Volley.newRequestQueue(getContext()).add(jjsonRequest);
+                                    Volley.newRequestQueue(getContext()).add(jjsonRequest);}
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
@@ -148,8 +150,9 @@ public class Information extends BaseActivity {
 
                 /////////////////////////////////////
 
-             Intent intent2 = new Intent(Information.this, third.class);
+             Intent intent2 = new Intent(getContext(), third.class);
                intent2.putExtra("wow",aa);
+               intent2.putExtra("kiki",kiki);
                 startActivity(intent2);
             }
         });

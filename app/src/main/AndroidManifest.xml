@@ -26,6 +26,9 @@
         <activity android:name=".third">
 
         </activity>
+        <activity android:name=".reservation">
+
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.CAMERA">
